@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pocket Study &amp; Task Hub</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="mobile-shell">
+    <section class="app-card" aria-labelledby="appTitle">
+      <!-- Top Bar -->
+      <header class="top-bar">
+        <div>
+          <span class="eyebrow">Mobile Mini Project</span>
+          <h1 id="appTitle">Study &amp; Task Hub</h1>
+        </div>
+        <button type="button" id="profileBtn" class="ghost-btn">Profile</button>
+      </header>
+
+      <!-- Profile / Quick Session Drawer -->
+      <div id="profilePanel" class="profile-panel" hidden>
+        <p id="activeUserText" class="profile-status">Guest Mode</p>
+        <div class="profile-form">
+          <input
+            type="text"
+            id="userNameInput"
+            placeholder="Your name (e.g., Muthumeena)"
+          />
+          <button type="button" id="saveUserBtn" class="small-btn">Save</button>
+        </div>
+      </div>
+
+      <!-- Summary Metrics -->
+      <section class="stats-grid" aria-label="Task summary">
+        <div class="stat-box">
+          <strong id="totalCount">0</strong>
+          <span>Total</span>
+        </div>
+        <div class="stat-box">
+          <strong id="pendingCount">0</strong>
+          <span>Pending</span>
+        </div>
+        <div class="stat-box">
+          <strong id="doneCount">0</strong>
+          <span>Done</span>
+        </div>
+      </section>
+
+      <!-- New Item Form -->
+      <form id="itemForm" class="item-form" novalidate>
+        <div class="input-row">
+          <input
+            type="text"
+            id="itemTitle"
+            placeholder="Add study goal or task..."
+            autocomplete="off"
+          />
+          <select id="itemCategory" aria-label="Category">
+            <option value="Study">Study</option>
+            <option value="Project">Project</option>
+            <option value="Personal">Personal</option>
+          </select>
+        </div>
+        <button type="submit" class="primary-btn">+ Add to Workspace</button>
+        <small id="itemError" class="error-text"></small>
+      </form>
+
+      <!-- Search & Filter -->
+      <div class="controls-bar">
+        <input
+          type="search"
+          id="searchInput"
+          placeholder="Search tasks..."
+          aria-label="Search tasks"
+        />
+        <div class="filter-pills" role="group" aria-label="Filter tasks">
+          <button type="button" class="pill active" data-filter="all">All</button>
+          <button type="button" class="pill" data-filter="pending">Pending</button>
+          <button type="button" class="pill" data-filter="done">Done</button>
+        </div>
+      </div>
+
+      <!-- Items List -->
+      <ul id="itemList" class="item-list" aria-live="polite"></ul>
+
+      <!-- Empty State -->
+      <div id="emptyBox" class="empty-box" hidden>
+        <p>No matching tasks found.</p>
+        <span>Add a new study or project item above.</span>
+      </div>
+
+      <!-- Footer -->
+      <footer class="app-footer">
+        <span id="storageInfo" class="storage-info">Saved locally</span>
+        <button type="button" id="clearDoneBtn" class="danger-link">Clear Done</button>
+      </footer>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+                         </html>
+                         
